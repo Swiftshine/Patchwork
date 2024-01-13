@@ -1,0 +1,7 @@
+Place your Kirby's Epic Yarn dol here.
+The filename should look like:
+RK5_[REGION].dol
+
+Acceptable region substrings include:
+
+USA

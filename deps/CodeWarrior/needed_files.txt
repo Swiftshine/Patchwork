@@ -1,0 +1,8 @@
+Place the following in this folder:
+
+license.dat
+lmgr8c.dll
+lmgr11.dll
+mwasmeppc.exe
+mwcceppc.exe
+mwldeppc.exe

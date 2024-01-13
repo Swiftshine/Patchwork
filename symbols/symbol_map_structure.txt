@@ -1,0 +1,3 @@
+# Use a hashtag for comments in the symbol map.
+
+symbol_name=0xADDRESS
