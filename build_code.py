@@ -32,10 +32,6 @@ if __name__ == '__main__':
 
     compile_command = f"{COMPILER} -i . -I- -i include/ -Cpp_exceptions off -enum int -Os -use_lmw_stmw on -fp hard -rostr -sdata 0 -sdata2 0 -c -o"
     asm_compile_command = f"{COMPILER_ASM} -i . -I- -i include/ -c -o"
-
-    # Clean build/obj directory
-    #if os.path.exists("build/obj"):
-    #    shutil.rmtree("build/obj", ignore_errors=True)
     
     # Get all C++ source files that might need to be compiled
     tasks = list()
@@ -91,7 +87,7 @@ if __name__ == '__main__':
     object_files = " ".join([task[1] for task in tasks])
     asm_object_files = " ".join([asm_task[1] for asm_task in asm_tasks])
 
-    kamek_command = f"{KAMEK} {object_files} {asm_object_files} -static=0x80001900 -externals=symbols/{region}.txt -output-kamek=build/RK5_{region}.bin"
+    kamek_command = f"{KAMEK} {object_files} {asm_object_files} -externals=symbols/{region}.txt -output-kamek=build/RK5_{region}.bin"
 
     if subprocess.call(kamek_command, shell=True) != 0:
         err("Linking failed.")

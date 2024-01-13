@@ -5,5 +5,5 @@
 kmWrite32(0x808e6a28, 0x40933333);
 
 /* As a side note, the "jump height correction" variable is 
-imply a float that is added to the player's base jump height. 
+simply a float that is added to the player's base jump height. 
 This is set to 0.15f by default. */
