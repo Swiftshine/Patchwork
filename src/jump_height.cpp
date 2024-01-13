@@ -1,4 +1,4 @@
-#include "kamek/kamek_loader.h"
+#include "kamek/kamek.h"
 
 // Set player jump height correction from to 4.6f.
 

@@ -31,7 +31,7 @@ if __name__ == '__main__':
         err("Kamek linker not found.")
 
     compile_command = f"{COMPILER} -i . -I- -i include/ -Cpp_exceptions off -enum int -Os -use_lmw_stmw on -fp hard -rostr -sdata 0 -sdata2 0 -c -o"
-    asm_compile_command = f"{COMPILER_ASM} -i . -I- -i include/ -Cpp_exceptions off -enum int -Os -use_lmw_stmw on -fp hard -rostr -sdata 0 -sdata2 0 -c -S -o"
+    asm_compile_command = f"{COMPILER_ASM} -i . -I- -i include/ -c -o"
 
     # Clean build/obj directory
     #if os.path.exists("build/obj"):
@@ -48,14 +48,17 @@ if __name__ == '__main__':
                 if file == "loader.cpp" or file == "rk5_loader.cpp":
                     continue
                 source_path = os.path.join(root, file)
-                build_path = source_path.replace("src", "build/obj/").replace(".cpp", ".o")
+                build_path = source_path.replace("src", "build\obj").replace(".cpp", ".o")
 
                 os.makedirs(os.path.dirname(build_path), exist_ok=True)
 
                 tasks.append((source_path, build_path))
-            elif file.endswith(".s"):
+            elif file.endswith(".s") or file.endswith(".S"):
                 source_path = os.path.join(root, file)
-                build_path = source_path.replace("src", "build/obj/").replace(".s", ".o")
+                if file.endswith(".s"):
+                    build_path = source_path.replace("src", "build\obj").replace(".s", ".o")
+                elif file.endswith(".S"):
+                    build_path = source_path.replace("src", "build\obj").replace(".S", ".o")
 
                 os.makedirs(os.path.dirname(build_path), exist_ok=True)
 
