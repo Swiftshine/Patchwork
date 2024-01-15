@@ -1,17 +1,16 @@
 #include "kamek/kamek.h"
-#include "gfl/param.h"
-using GFL::Param;
+#include "game/playerbase.h"
 
 // default value is 3.5f
-float whip_length = 7.0f;
+float whipLength = 5.0f;
 
 kmBranchDefAsm(0x8009b6d0, 0x8009b6d8) {
-    // upper bits of whip_length address
-    lis r4, whip_length@ha;
+    // upper bits of whipLength address
+    lis r4, whipLength@ha;
 
-    // lower bits of whip_length address
-    addi r4, r4, whip_length@l;
+    // lower bits of whipLength address
+    addi r4, r4, whipLength@l;
 
-    // load whip_length into f0
+    // load whipLength into f0
     lfs f0, 0x0(r4);
 }

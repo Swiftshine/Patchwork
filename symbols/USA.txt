@@ -10,3 +10,14 @@ OSReport__FPCce=0x806649C0
 #DVDConvertPathToEntrynum=0x8066FD30
 #DVDFastOpen=0x80670040
 #DVDReadPrio=0x80670410
+
+
+# GameMgr
+loadStageDataFromID__7GameMgrFPUlUl=0x800454d4
+loadMapdataFromID__7GameMgrFPUlUl=0x80045c4c
+loadCommonFromID__7GameMgrFPUlUl=0x80045abc
+loadStageFromID__7GameMgrFPUlUl=0x8004589c
+
+
+# PlayerBase
+setWoolWhipRange__10PlayerBaseFdP10PlayerBaseb=0x80070DC4

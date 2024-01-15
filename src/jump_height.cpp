@@ -1,8 +1,13 @@
 #include "kamek/kamek.h"
 
-// Set player jump height correction from to 4.6f.
+// Set player jump height correction to a custom value
 
-kmWrite32(0x808e6a28, 0x40933333);
+// till i find out how i can just use the float,
+// you can use this float -> hex converter
+// https://gregstoll.com/~gregstoll/floattohex/
+
+kmWrite32(0x808e6a28, 0x40200000); // 2.5f
+
 
 /* As a side note, the "jump height correction" variable is 
 simply a float that is added to the player's base jump height. 
