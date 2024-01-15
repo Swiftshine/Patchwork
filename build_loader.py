@@ -54,7 +54,7 @@ def build(region: str):
 # Main program
 
 if __name__ == '__main__':
-
+    print("RK5 loader build script\n")
     '''
     if len(sys.argv) < 2:
         print("Usage: ")

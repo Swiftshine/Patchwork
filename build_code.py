@@ -22,6 +22,7 @@ KAMEK = get_dependency_path("deps/Kamek/Kamek.exe", "Kamek linker")
 # Main program
 
 if __name__ == '__main__':
+    print("RK5 code build script\n")
     region = "USA"
 
     # Check if CodeWarrior and Kamek are present

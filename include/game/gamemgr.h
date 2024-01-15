@@ -2,14 +2,24 @@
 #define FLUFF_GAME_MGR_H
 
 #include <types.h>
+#include "gfl/gfl.h"
 
-namespace GameMgr {
-    // these probably don't actually belong to GameMgr
-    void loadLevel(u32* unk1, u32* unk2);
-    void loadStageDataFromID(u32* unk1, u32 stageID);
-    void loadMapdataFromID(u32* unk1, u32 stageID);
-    void loadCommonFromID(u32* unk1, u32 stageID);
-    void loadBgFromID(u32* unk1, u32 stageID);
-} // namespace GameMgr
+class GameMgr {
+public:
+    GameMgr();
+public:
+    void* baseObject;           // 0x0
+    u8 unk1[0x6C - 0x4];        // 0x4
+    GFL::Task* stageTask;       // 0x6C
+    u8 unk2[0x84 - 0x70];       // 0x70
+    GFL::Task* task2;           // 0x84
+    u8 unk3[0x90 - 0x88];       // 0x88
+    void* functorClassMethod;   // 0x90
+    u8 unk4[0xA0 - 0x94];       // 0x94
+    void* buffer;               // 0xA0
+    u8 unk5[0xBC - 0xA4];       // 0xA4
+};
+
+static_assert(sizeof(GameMgr) == 0xC0, "GameMgr is not the correct size.");
 
 #endif

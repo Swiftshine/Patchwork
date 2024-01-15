@@ -13,6 +13,7 @@ namespace GFL {
         u32 uinteger;
         s32 sinteger;
         f32 floating;
+        bool boolean;
     } ParamValue;
 
     struct Param {
