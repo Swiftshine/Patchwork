@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "PowerPC 32-bit",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include/"
@@ -14,8 +14,8 @@
             "windowsSdkVersion": "10.0.22000.0",
             "compilerPath": "cl.exe",
             "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64"
+            "cppStandard": "c++98",
+            "intelliSenseMode": "windows-msvc-x86" // Broadway is 32-bit
         }
     ],
     "version": 4
