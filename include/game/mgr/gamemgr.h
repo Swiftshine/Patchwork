@@ -1,7 +1,6 @@
 #ifndef FLUFF_GAME_MGR_H
 #define FLUFF_GAME_MGR_H
 
-#include <types.h>
 #include "gfl/gfl.h"
 
 class GameMgr {

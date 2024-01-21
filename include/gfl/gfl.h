@@ -1,2 +1,6 @@
+#include "gfl/file.h"
+#include "gfl/functor.h"
+#include "gfl/functorclassmethod.h"
+#include "gfl/object.h"
 #include "gfl/param.h"
 #include "gfl/task.h"

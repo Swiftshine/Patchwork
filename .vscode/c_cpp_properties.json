@@ -15,7 +15,7 @@
             "compilerPath": "cl.exe",
             "cStandard": "c17",
             "cppStandard": "c++98",
-            "intelliSenseMode": "windows-msvc-x86" // Broadway is 32-bit
+            "intelliSenseMode": "windows-msvc-x86"
         }
     ],
     "version": 4
