@@ -7,13 +7,13 @@
 namespace GFL {
 
 // Size: 0x14
-class FunctorClassMethod {
-    public:
 
-    public:
+class FunctorClassMethod0 {
+public:
+public:
     void* baseObject;   // 0x0, 0x4
     void* owner;        // 0x4, 0x4
-    u32 _8;             // 0x8, 0x4
+    void* function;     // 0x8, 0x4
     u32 _C;             // 0xC, 0x4
     u32 _10;            // 0x10, 0x4
 };

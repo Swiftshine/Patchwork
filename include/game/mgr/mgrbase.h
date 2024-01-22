@@ -14,7 +14,7 @@ public:
     GFL::Task* task;  // 0x4, 0x4
     void* _8;         // 0x8, 0x4
     GFL::Functor* functor; // 0xC, 0x4
-    GFL::FunctorClassMethod* functorClassMethod; // 0x10, 0x4
+    GFL::FunctorClassMethod0* functorClassMethod; // 0x10, 0x4
     void* _14; // 0x14, 0x4
 };
 
