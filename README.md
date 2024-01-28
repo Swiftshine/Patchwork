@@ -22,13 +22,13 @@ You will need [Riivolution](https://aerialx.github.io/rvlution.net/wiki/Riivolut
 
 If you just want to quickly test out the existing modifications, then you'll need to set up your patch xml to include these patches:
 ```xml
-<memory offset="0x80001900" valuefile="/YourFolderName/Code/loader.bin"/>
+<memory offset="0x80001900" valuefile="/YourFolderName/Code/rk5_loader.bin"/>
 
 <!-- The '4BFFB73D' address might change, but all you need to know is that it branches to a function that calls the loader (which is at address 0x80001900) -->
 <memory offset='0x80006C40' value='4BFFB73D'/>
 ```
 
-To generate `loader.bin`, run `build_loader.py`. You will see the file in the `build/` folder.
+To generate `rk5_loader.bin`, run `build_loader.py`. You will see the file in the `build/` folder.
 
 To generate custom code, run `build_code.py`. This will compile and assemble any `.cpp` or `.S` files (excluding those related to the loader). The result will be a file called `RK5_{REGION}.bin`, where `{REGION}` is the region of your game, located in the `build/` folder.
 
