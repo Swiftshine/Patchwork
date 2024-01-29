@@ -5,12 +5,10 @@
 float whipLength = 5.0f;
 
 kmBranchDefAsm(0x8009b6d0, 0x8009b6d8) {
-    // upper bits of whipLength address
+    // r4 = &whipLength
     lis r4, whipLength@ha;
-
-    // lower bits of whipLength address
     addi r4, r4, whipLength@l;
 
-    // load whipLength into f0
+    // f0 = *(r4)
     lfs f0, 0x0(r4);
 }
