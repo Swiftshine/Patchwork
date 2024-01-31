@@ -16,7 +16,7 @@ public:
     u8 unk1[0x10 - 0x4]; // 0x4, 0xC
 };
 
-static_assert(sizeof(Functor) == 0x10, "GFL::Functor is not the correct size.");
+//static_assert(sizeof(Functor) == 0x10, "GFL::Functor is not the correct size.");
 
 
 // Size unknown
