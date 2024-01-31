@@ -2,13 +2,14 @@
 #include "gfl/gfl.h"
 #include "game/stage/stage.h"
 
-u32* printStageID(u32* stageTask, Stage* stage) {
+u32* printStageInfo(u32* stageTask, Stage* stage) {
+    OSReport("Loading stage with 0x0 value: %d\n", stage->_0);
     OSReport("Loading stage with ID: %d\n", stage->stageID);
+    OSReport("Loading stage with 0x8 value: %d\n", stage->_8);
     return stageTask;
 }
 
 // Hook into StageMgr::loadStageData
-// uncomment below if you want to use this (currently broken but somewhat functional)
 kmBranchDefAsm(0x80044b34, 0x80044b38) {
     // original instruction
     lwz r0, 0x0(r4);
@@ -33,7 +34,7 @@ kmBranchDefAsm(0x80044b34, 0x80044b38) {
     mflr r0
     stw  r0,  0x40(sp)
 
-    bl printStageID;
+    bl printStageInfo;
 
     // restore volatile registers
     lwz  r0,  0x38(sp)
