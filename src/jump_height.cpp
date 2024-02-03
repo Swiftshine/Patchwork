@@ -6,8 +6,7 @@
 // you can use this float -> hex converter
 // https://gregstoll.com/~gregstoll/floattohex/
 
-// uncomment this if you want to use it
-//kmWrite32(0x808e6a28, 0x40200000); // 2.5f
+kmWrite32(0x808e6a28, 0x40200000); // 2.5f
 
 
 /* As a side note, the "jump height correction" variable is 

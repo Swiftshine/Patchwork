@@ -10,6 +10,8 @@ u32* printStageInfo(u32* stageTask, Stage* stage) {
 }
 
 // Hook into StageMgr::loadStageData
+// Entry - 0x80044B34
+// Exit - 0x80044B38
 kmBranchDefAsm(0x80044b34, 0x80044b38) {
     // original instruction
     lwz r0, 0x0(r4);

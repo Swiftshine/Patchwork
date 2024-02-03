@@ -1,6 +1,6 @@
 #include "kamek/kamek.h"
 
-u32 customBeadValue = 10;
+u32 customBeadValue = 15;
 
 
 // This hooks into Bead::setValue()
