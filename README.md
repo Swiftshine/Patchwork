@@ -32,12 +32,31 @@ To generate `rk5_loader.bin`, run `build_loader.py`. You will see the file in th
 
 To generate custom code, run `build_code.py`. This will compile and assemble any `.cpp` or `.S` files (excluding those related to the loader). The result will be a file called `RK5_{REGION}.bin`, where `{REGION}` is the region of your game, located in the `build/` folder.
 
-> As of writing this, only "USA" is supported (and is hardcoded).
-
 Once you've gotten your loader and custom code binaries generated, put them wherever your Riivolution and loader code specify. It's important that the location of `RK5_{REGION}.bin` matches what is specified by the loader - by default, this is in a directory called `/Code/`, though you can change it to whatever you want if you simply recompile.
 
+## Modules
+Using YAML files, you can specify which parts of the Patchwork codebase you want to include in your compilation. An example (`sample_module.yaml`) is found in the `modules/` folder.
+
+### Module Structure
+Below is an example strucutre.
+```yaml
+Region:
+  - "USA"
+CPP:
+  - "src/sample.cpp"
+ASM:
+  - "src/sample.S"
+```
+### Using Modules
+A module can be specified by adding the name of the module to the build command ("module" and "module.yaml" will do the same thing).
+```
+build_code.py sample_module
+```
+
+Omitting a module name results in all code in the `src/` folder being compiled. Likewise, if a specified module name doesn't exist in the `modules/` folder, all code gets compiled.
+
 ## Notes
-Currently, there is only support for the USv1 of Kirby's Epic Yarn (meaning that `{REGION}` will always be `USA`). I may consider supporting other regions/versions of the game in the future.
+There is currently only support for the `USA` version of Kirby's Epic Yarn.
 
 [cw]: http://cache.nxp.com/lgfiles/devsuites/PowerPC/CW55xx_v2_10_SE.exe?WT_TYPE=IDE%20-%20Debug,%20Compile%20and%20Build%20Tools&WT_VENDOR=FREESCALE&WT_FILE_FORMAT=exe&WT_ASSET=Downloads&fileExt=.exe
 [cwIA]: http://web.archive.org/web/20160602205749/http://www.nxp.com/products/software-and-tools/software-development-tools/codewarrior-development-tools/downloads/special-edition-software:CW_SPECIALEDITIONS

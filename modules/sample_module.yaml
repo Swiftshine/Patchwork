@@ -1,0 +1,10 @@
+---
+Region:
+  - "USA"
+CPP:
+  - "src/bead_value.cpp"
+  - "src/bead_weight.cpp"
+  - "src/whip_length.cpp"
+ASM:
+# None, but this is where you'd put custom asm. For example:
+# - "src/example_asm.S"
