@@ -3,7 +3,9 @@ import os
 import sys
 from pathlib import Path
 import yaml
+import colorama
 from colorama import Fore, Style
+colorama.init()
 
 def err(message: str):
     print(Fore.RED + f"Error: {message}" + Style.RESET_ALL)
@@ -13,7 +15,7 @@ def warn(message: str):
     print(Fore.YELLOW + f"Warning: {message}" + Style.RESET_ALL)
     
 def info(message: str):
-    print(Fore.CYAN + f"Info: {message}" + Style.RESET_ALL)
+    print("\n" + Fore.CYAN + f"Info: {message}" + Style.RESET_ALL)
 
 def get_dependency_path(path, name):
     path = Path(path)
@@ -35,7 +37,10 @@ def get_cpp_tasks(target: str):
             yaml_file = yaml.safe_load(file)
             sources = yaml_file['CPP']
             for source in sources:
-                source_name = source.strip("src/").strip(".cpp")
+                if not os.path.exists(source):
+                    warn(source + " doesn't exist! Skipping it.")
+                    continue
+                source_name = source.replace("src/", "").replace(".cpp", "")
                 result.append(("src/" + source_name + ".cpp", "build/obj/" + source_name + ".o"))
 
     elif target == "all":
@@ -76,12 +81,18 @@ def get_asm_tasks(target: str):
                 return None
 
             for source in sources:
-                source_name = source.strip("src/")
+                source_name = source.replace("src/", "")
                 if source_name.endswith(".s"):
-                    source_name = source_name.strip(".s")
+                    if not os.path.exists(source):
+                        warn(source + " doesn't exist! Skipping it.")
+                        continue
+                    source_name = source_name.replace(".s", "")
                     result.append(("src/" + source_name + ".s", "build/obj/" + source_name + ".o"))
                 elif source_name.endswith(".S"):
-                    source_name = source_name.strip(".S")
+                    if not os.path.exists(source):
+                        warn(source + " doesn't exist! Skipping it.")
+                        continue
+                    source_name = source_name.replace(".S", "")
                     result.append(("src/" + source_name + ".S", "build/obj/" + source_name + ".o"))
     elif target == "all":
         for root, dirs, files in os.walk("src"):
@@ -109,7 +120,7 @@ if __name__ == '__main__':
         sys.exit(1)
     
     # Begin
-    print("RK5 code build script")
+    print("-- RK5 code build script --")
 
     # Check module target
     module_target = ""
@@ -125,7 +136,7 @@ if __name__ == '__main__':
     else: # user did not specify a yaml file
         module_target = "all"
 
-    print("Building target: " + Fore.CYAN + module_target + Style.RESET_ALL + "\n")
+    print("Building target: " + Fore.CYAN + module_target + Style.RESET_ALL)
 
     # might support more versions in the future
     region = "USA"
@@ -148,6 +159,7 @@ if __name__ == '__main__':
     
     # Process all compile tasks
 
+    info("Compiling...")
     for task in cpp_tasks:
         source_path, build_path = task
 
@@ -157,6 +169,7 @@ if __name__ == '__main__':
             err("Compiler error.")
     
     if asm_tasks is not None:
+        info("Assembling...")
         for asm_task in asm_tasks:
             source_path, build_path = asm_task
 
@@ -165,10 +178,8 @@ if __name__ == '__main__':
             if subprocess.call(f"{asm_compile_command} {build_path} {source_path}", shell=True) != 0:
                 err("Assembler error.")
 
-    print("\nCompilation successful.")
-
     # Link all object files
-    print("\nLinking...")
+    info("Linking...")
 
     object_files = " ".join([task[1] for task in cpp_tasks])
 
@@ -181,4 +192,4 @@ if __name__ == '__main__':
     if subprocess.call(kamek_command, shell=True) != 0:
         err("Linking failed.")
 
-    print("\nDone!")
+    print(Fore.GREEN + "\nDone!" + Style.RESET_ALL)
