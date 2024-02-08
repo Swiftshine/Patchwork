@@ -1,0 +1,6 @@
+---
+Region:
+  - "USA"
+CPP:
+  - "src/print_enemy_table.cpp"
+ASM: []

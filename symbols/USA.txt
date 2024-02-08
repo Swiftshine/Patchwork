@@ -11,6 +11,7 @@ OSReport__FPCce=0x806649C0
 #DVDFastOpen=0x80670040
 #DVDReadPrio=0x80670410
 
+
 # GameMgr
 __ct__7GameMgrFv=0x8000E464
 
@@ -26,3 +27,6 @@ loadStageDataFromID__8StageFPUlUl=0x800454d4
 loadMapdataFromID__8StageFPUlUl=0x80045c4c
 loadCommonFromID__8StageMgrFPUlUl=0x80045abc
 loadStageFromID__8StageMgrFPUlUl=0x8004589c
+
+### Misc. ###
+getEnemyConstructorbyID__FUl=0x8012d474

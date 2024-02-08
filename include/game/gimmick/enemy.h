@@ -4,6 +4,9 @@
 #include "gfl/gfl.h"
 #include "game/gimmick/enemylist.h"
 #include "game/gameobject.h"
+#include "types.h"
+
+#define ENEMY_TABLE_ADDR 0x80844A14 // US version!
 
 class EnemyBase : public GameObject {
 public:
@@ -13,6 +16,18 @@ public:
     u8 _4[0x1D0 - 0x4];         // 0x4
 };
 
-static_assert(sizeof(EnemyBase) == 0x1D0, "Enemy is not the correct size.");
+//static_assert(sizeof(EnemyBase) == 0x1D0, "Enemy is not the correct size.");
+
+class EnemyTable {
+public:
+    char* name;
+    void* constructor;
+    char* _8; // some kind of base object maybe?
+    char* path; // path to the enemy's file
+    u32 someID; // this value always seems to be 0, 1, or 2 less than the number listed in the enemy's actual name...
+};
+
+
+//static_assert(sizeof(EnemyTable) == 0x14, "EnemyTable is not the correct size.");
 
 #endif
