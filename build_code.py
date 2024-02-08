@@ -171,7 +171,7 @@ if __name__ == '__main__':
         if subprocess.call(f"{compile_command} {build_path} {source_path}", shell=True) != 0:
             err("Compiler error.")
     
-    if asm_tasks is not None and len(asm_tasks) < 1:
+    if asm_tasks is not None and len(asm_tasks) > 0:
         info("Assembling...")
         for asm_task in asm_tasks:
             source_path, build_path = asm_task
