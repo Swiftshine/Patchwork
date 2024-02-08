@@ -47,3 +47,8 @@ SafeBranch: .macro __addr__
     bl __addr__
     RestoreVolatileRegisters
 .endm
+
+RefreshVolatileRegisters: .macro
+    RestoreVolatileRegisters
+    SaveVolatileRegisters
+.endm
