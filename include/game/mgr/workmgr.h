@@ -1,5 +1,5 @@
-#ifndef FLUFF_WORK_MGR_H
-#define FLUFF_WORK_MGR_H
+#ifndef FLUFF_WORK_MANAGER_H
+#define FLUFF_WORK_MANAGER_H
 
 #include <types.h>
 #include "gfl/gfl.h"

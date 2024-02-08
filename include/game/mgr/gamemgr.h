@@ -1,5 +1,5 @@
-#ifndef FLUFF_GAME_MGR_H
-#define FLUFF_GAME_MGR_H
+#ifndef FLUFF_GAME_MANAGER_H
+#define FLUFF_GAME_MANAGER_H
 
 #include "gfl/gfl.h"
 

@@ -1,5 +1,5 @@
-#ifndef FLUFF_GAME_ROOT_MGR_H
-#define FLUFF_GAME_ROOT_MGR_H
+#ifndef FLUFF_GAME_ROOT_MANAGER_H
+#define FLUFF_GAME_ROOT_MANAGER_H
 
 #include "gfl/gfl.h"
 #include "game/mgr/mgrbase.h"
