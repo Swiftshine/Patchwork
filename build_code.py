@@ -17,6 +17,9 @@ def warn(message: str):
 def info(message: str):
     print("\n" + Fore.CYAN + f"Info: {message}" + Style.RESET_ALL)
 
+def debug(message: str):
+    print(Fore.YELLOW + Style.BRIGHT + f"Debug: {message}" + Style.RESET_ALL)
+
 def get_dependency_path(path, name):
     path = Path(path)
     if not os.path.exists(path):
@@ -33,6 +36,7 @@ def get_cpp_tasks(target: str):
         target_files = list()
 
         # Go through the yaml and include every C++ source
+        
         with open("modules/" + target, 'r') as file:
             yaml_file = yaml.safe_load(file)
             sources = yaml_file['CPP']
@@ -72,10 +76,10 @@ def get_asm_tasks(target: str):
             sources = list()
 
             if "ASM" in yaml_file:
+                print("asm in yaml file")
                 sources = yaml_file['ASM']
             else:
                 return None
-            
             
             if sources is None:
                 return None
@@ -108,7 +112,7 @@ def get_asm_tasks(target: str):
 
                     result.append((source_path, build_path))
 
-        return result
+    return result
 # Main program
 
 if __name__ == '__main__':
@@ -177,7 +181,9 @@ if __name__ == '__main__':
 
             if subprocess.call(f"{asm_compile_command} {build_path} {source_path}", shell=True) != 0:
                 err("Assembler error.")
-
+    #elif asm_tasks is None:
+        #print(asm_tasks[0])
+    
     # Link all object files
     info("Linking...")
 
