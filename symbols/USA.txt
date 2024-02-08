@@ -29,4 +29,4 @@ loadCommonFromID__8StageMgrFPUlUl=0x80045abc
 loadStageFromID__8StageMgrFPUlUl=0x8004589c
 
 ### Misc. ###
-getEnemyConstructorbyID__FUl=0x8012d474
+getEnemyConstructorByID__FUl=0x8012d474
