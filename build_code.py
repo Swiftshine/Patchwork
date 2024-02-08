@@ -76,7 +76,6 @@ def get_asm_tasks(target: str):
             sources = list()
 
             if "ASM" in yaml_file:
-                print("asm in yaml file")
                 sources = yaml_file['ASM']
             else:
                 return None
@@ -172,7 +171,7 @@ if __name__ == '__main__':
         if subprocess.call(f"{compile_command} {build_path} {source_path}", shell=True) != 0:
             err("Compiler error.")
     
-    if asm_tasks is not None:
+    if asm_tasks is not None and len(asm_tasks) < 1:
         info("Assembling...")
         for asm_task in asm_tasks:
             source_path, build_path = asm_task
@@ -181,8 +180,6 @@ if __name__ == '__main__':
 
             if subprocess.call(f"{asm_compile_command} {build_path} {source_path}", shell=True) != 0:
                 err("Assembler error.")
-    #elif asm_tasks is None:
-        #print(asm_tasks[0])
     
     # Link all object files
     info("Linking...")
