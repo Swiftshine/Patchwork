@@ -38,7 +38,17 @@ def get_cpp_tasks(target: str):
         # Go through the yaml and include every C++ source
         
         with open("modules/" + target, 'r') as file:
+            sources = list()
             yaml_file = yaml.safe_load(file)
+
+            if "CPP" in yaml_file:
+                sources = yaml_file['CPP']
+            else:
+                return None
+            
+            if sources is None:
+                return None
+
             sources = yaml_file['CPP']
             for source in sources:
                 if not os.path.exists(source):
@@ -153,23 +163,24 @@ if __name__ == '__main__':
     compile_command = f"{COMPILER} -i . -I- -i include/ -Cpp_exceptions off -enum int -Os -use_lmw_stmw on -fp hard -rostr -sdata 0 -sdata2 0 -c -o"
     asm_compile_command = f"{COMPILER_ASM} -i . -I- -i include/ -c -o"
 
-    # Get all C++ source files that might need to be compiled
+    # Get all source files that might need to be compiled
     cpp_tasks = get_cpp_tasks(module_target)
     asm_tasks = get_asm_tasks(module_target)
     
-    if len(cpp_tasks) < 1 or cpp_tasks is None:
-        err("No C++ source files found.")
+    if cpp_tasks is None and asm_tasks is None:
+        err(f"No source files found in target {module_target}.")
     
     # Process all compile tasks
 
-    info("Compiling...")
-    for task in cpp_tasks:
-        source_path, build_path = task
+    if cpp_tasks is not None and len(cpp_tasks) > 0:
+        info("Compiling...")
+        for task in cpp_tasks:
+            source_path, build_path = task
 
-        print(f"Compiling {source_path}...")
+            print(f"Compiling {source_path}...")
 
-        if subprocess.call(f"{compile_command} {build_path} {source_path}", shell=True) != 0:
-            err("Compiler error.")
+            if subprocess.call(f"{compile_command} {build_path} {source_path}", shell=True) != 0:
+                err("Compiler error.")
     
     if asm_tasks is not None and len(asm_tasks) > 0:
         info("Assembling...")
@@ -184,13 +195,15 @@ if __name__ == '__main__':
     # Link all object files
     info("Linking...")
 
-    object_files = " ".join([task[1] for task in cpp_tasks])
+    cpp_object_files = ""
+    if cpp_tasks is not None:
+        cpp_object_files = " ".join([task[1] for task in cpp_tasks])
 
     asm_object_files = ""
     if asm_tasks is not None:
         asm_object_files = " ".join([asm_task[1] for asm_task in asm_tasks])
 
-    kamek_command = f"{KAMEK} {object_files} {asm_object_files} -externals=symbols/{region}.txt -output-kamek=build/RK5_{region}.bin"
+    kamek_command = f"{KAMEK} {cpp_object_files} {asm_object_files} -externals=symbols/{region}.txt -output-kamek=build/RK5_{region}.bin"
 
     if subprocess.call(kamek_command, shell=True) != 0:
         err("Linking failed.")
