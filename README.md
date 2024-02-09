@@ -20,9 +20,9 @@ A Kirby's Epic Yarn (Wii) custom code framework.
 ### Instructions
 You will need [Riivolution](https://aerialx.github.io/rvlution.net/wiki/Riivolution/) to load these code mods.
 
-If you just want to quickly test out the existing modifications, then you'll need to set up your patch xml to include these patches:
+If you just want to quickly test out the existing modifications, then you'll need to set up your patch xml (which should be generated once you run `build_loader.py`) to include these patches:
 ```xml
-<memory offset="0x80001900" valuefile="/YourFolderName/Code/rk5_loader.bin"/>
+<memory offset="0x80001900" valuefile="/YourFolderName/patchwork/rk5_loader.bin"/>
 
 <!-- The '4BFFB73D' address might change, but all you need to know is that it branches to a function that calls the loader (which is at address 0x80001900) -->
 <memory offset='0x80006C40' value='4BFFB73D'/>

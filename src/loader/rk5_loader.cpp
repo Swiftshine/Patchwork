@@ -53,10 +53,9 @@ kmCallDefCpp(0x80006C40, int, void) {
 
 int loadIntoKEY() {
     // just for ntscv1
-
     const loaderFunctionsEx* funcs = &functions_ex_ntsc;
     funcs->base.OSReport("Loading custom code for Kirby's Epic Yarn...\n");
-    loadKamekBinaryFromDisc(&funcs->base, "/Code/RK5_USA.bin");
+    loadKamekBinaryFromDisc(&funcs->base, "/patchwork/RK5_USA.bin");
     funcs->base.OSReport("Finished loading custom code! Welcome to Patchwork!\n");
     return 1;
 }
