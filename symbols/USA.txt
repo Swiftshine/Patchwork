@@ -32,5 +32,5 @@ loadStageFromID__8StageMgrFPUlUl=0x8004589c
 copyEnemyNameByID__FUlPc=0x8012e92c
 getEnemyNameByID__FUl=0x8012e948
 getEnemyConstructorByID__FUl=0x8012d474
-getEnemyRelatedNameByID__FUl=0x8012e960
+getLinkedEnemyNameByID__FUl=0x8012e960
 getEnemyResPathByID__FUl=0x8012e978

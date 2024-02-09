@@ -25,7 +25,7 @@ public:
         void (*constructor)(); // ctor function ptr
         void (*constructorCaller)(); // function ptr to a function that calls the constructor
     };
-    char* relatedEnemyName;   // seems to be related to other enemies; this value is often a char* to the name of some other enemy. the link between these is currently unknown.
+    char* linkedEnemyName; // the name of either this enemy or another (linked) enemy it depends on
     char* path; // path to the enemy's file
     u32 someID; // this value always seems to be 0, 1, or 2 less than the number listed in the enemy's actual name...
 };
