@@ -2,95 +2,85 @@
 #include <kamek/kamek_asm.S>
 
 .data
-linkReg: .int 0
-enemyTableAddr: .int 0
-printName:  .string "table->name  : %s\n\0"
-printCtor:  .string "table->ctor  : %p\n\0"
-printEight: .string "table->_8    : %s\n\0"
-printPath:  .string "table->path  : %s\n\0"
-printID:    .string "table->someID: %d\n\0"
-
+printName:  .string "table->name: %s\n\0"
+printCtor:  .string "table->ctor/caller: %p\n\0"
+printRelatedEnemyName: .string "table->relatedEnemyName: %s\n\0"
+printPath:  .string "table->path: %s\n\0"
+#printID:    .string "table->someID: %d\n\0"
 .text
 
-kmBranchDef 0x8012d480
-    # original instruction
-    add  r3, r3, r0
+# a comment
+// psuedocode
 
-    # r3 is currently an EnemyTable*
+# print name
+# hook into `getEnemyNameByID()`
+kmBranchDef 0x8012E958
+    # original instruction
+    lwz r3, 0x4(r3)
+
+    # r3 is currently the ptr to the name string
     SaveVolatileRegisters
 
-    # store link register in 'linkReg'
-    mflr r4
-    lis  r5, linkReg@ha
-    addi r5, r5, linkReg@l
-    stw r4, 0x0(r5)
-
-    # store r3 in 'enemyTableAddr'
-    lis r5, enemyTableAddr@ha
-    addi r5, r5, enemyTableAddr@l
-    stw r3, 0x0(r5)
-
-    RefreshVolatileRegisters
-    # 1st OSReport call
-        # r3 = the addr of the 'printName' string
+    // r4 = r3
+    mr r4, r3
+    // r3 = &printName
     lis r3, printName@ha
     addi r3, r3, printName@l
-        # r4 = enemyTable.name
-    lis r4, enemyTableAddr@ha
-    addi r4, r4, enemyTableAddr@l
-    lwz r4, 0x0(r4)
-    kamek_bl 0x806649C0
-    RefreshVolatileRegisters
 
-    # 2nd OSReport call
-        # r3 = the addr of the 'printCtor' string
+    // OSReport(r3, r4)
+    kamek_bl 0x806649C0
+
+    # done
+    RestoreVolatileRegisters
+    kamek_b 0x8012E95C # 'blr'
+
+# print constructor (or constructor caller) address
+# hook into `getEnemyConstructorByID()`
+kmBranchDef 0x8012D484
+    # original instruction
+    lwz r3, 0x8(r3)
+
+    # r3 is currently the ctorCaller addr (the one we want to print)
+    SaveVolatileRegisters
+
+    // r4 = r3
+    mr r4, r3
+    // r3 = &printCtor
     lis r3, printCtor@ha
     addi r3, r3, printCtor@l
-        # r4 = enemyTable.constructor
-    lis r4, enemyTableAddr@ha
-    addi r4, r4, enemyTableAddr@l
-    lwz r4, 0x4(r4)
-    kamek_bl 0x806649C0
-    RefreshVolatileRegisters
 
-    # 3rd OSReport call
-        # r3 = the addr of the `printEight` string
-    lis r3, printEight@ha
-    addi r3, r3, printEight@l
-        # r4 = enemyTable._8
-    lis r4, enemyTableAddr@ha
-    addi r4, r4, enemyTableAddr@l
-    lwz r4, 0x8(r4)
+    // OSreport(r3, r4)
     kamek_bl 0x806649C0
-    RefreshVolatileRegisters
 
-    # 4th OSReport call
-        # r3 = the addr of the `printPath` string
+    # done
+    RestoreVolatileRegisters
+    kamek_b 0x8012D488 # 'blr'
+
+# print related enemy name
+# hook into `getEnemyRelatedEnemyNameByID()`
+kmBranchDef 0x8012E970
+    # original instruction
+    lwz r3, 0xC(r3)
+
+    # you get it by this point. just look at the EnemyTable struct
+    SaveVolatileRegisters
+    mr r4, r3
+    lis r3, printRelatedEnemyName@ha
+    addi r3, r3, printRelatedEnemyName@l
+    kamek_bl 0x806649C0
+    RestoreVolatileRegisters
+    kamek_b 0x8012e974 # 'blr'
+
+# print enemy resource path
+kmBranchDef 0x8012e988
+    # original instruction
+    lwz r3, 0x10(r3)
+    SaveVolatileRegisters
+    mr r4, r3
     lis r3, printPath@ha
     addi r3, r3, printPath@l
-        # r4 = enemyTable.path
-    lis r4, enemyTableAddr@ha
-    addi r4, r4, enemyTableAddr@l
-    lwz r4, 0xC(r4)
     kamek_bl 0x806649C0
-    RefreshVolatileRegisters
-
-    # 5th OSReport call
-        # r3 = the addr of the `printID` string
-    lis r3, printID@ha
-    addi r3, r3, printID@l
-        # r4 = enemyTable.someID
-    lis r4, enemyTableAddr@ha
-    addi r4, r4, enemyTableAddr@l
-    lwz r4, 0x10(r4)
-    kamek_bl 0x806649C0
-    RefreshVolatileRegisters
-
-    # done with printing, restore link register and volatile registers
-    lis  r5, linkReg@ha
-    addi r5, r5, linkReg@l
-    lwz r4, 0x0(r5)
-    mtlr r4
     RestoreVolatileRegisters
+    kamek_b 0x8012e98C
 
-    kamek_b 0x8012d484
+# currently no in-game function to return an EnemyTable.someID but dw about it for now
