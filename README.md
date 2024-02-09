@@ -33,7 +33,7 @@ To generate `rk5_loader.bin`, run `build_loader.py`. You will see the file in th
 
 To generate custom code, run `build_code.py`. This will compile and assemble any `.cpp` or `.S` files (excluding those related to the loader). The result will be a file called `RK5_{REGION}.bin`, where `{REGION}` is the region of your game, located in the `build/` folder.
 
-Once you've gotten your loader and custom code binaries generated, put them wherever your Riivolution and loader code specify. It's important that the location of `RK5_{REGION}.bin` matches what is specified by the loader - by default, this is in a directory called `/Code/`, though you can change it to whatever you want if you simply recompile.
+Once you've gotten your loader and custom code binaries generated, put them wherever your Riivolution and loader code specify. It's important that the location of `RK5_{REGION}.bin` matches what is specified by the loader - by default, this is in a directory called `/patchwork/`, though you can change it to whatever you want if you simply recompile.
 
 ## Modules
 Using YAML files, you can specify which parts of the Patchwork codebase you want to include in your compilation. An example (`sample_module.yaml`) is found in the `modules/` folder.
