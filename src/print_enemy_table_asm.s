@@ -4,7 +4,7 @@
 .data
 printName:  .string "table->name: %s\n\0"
 printCtor:  .string "table->ctor/caller: %p\n\0"
-printRelatedEnemyName: .string "table->relatedEnemyName: %s\n\0"
+printLinkedEnemyName: .string "table->linkedEnemyName: %s\n\0"
 printPath:  .string "table->path: %s\n\0"
 #printID:    .string "table->someID: %d\n\0"
 .text
@@ -57,7 +57,7 @@ kmBranchDef 0x8012D484
     kamek_b 0x8012D488 # 'blr'
 
 # print related enemy name
-# hook into `getEnemyRelatedEnemyNameByID()`
+# hook into `getEnemyLinkedEnemyNameByID()`
 kmBranchDef 0x8012E970
     # original instruction
     lwz r3, 0xC(r3)
@@ -65,8 +65,8 @@ kmBranchDef 0x8012E970
     # you get it by this point. just look at the EnemyTable struct
     SaveVolatileRegisters
     mr r4, r3
-    lis r3, printRelatedEnemyName@ha
-    addi r3, r3, printRelatedEnemyName@l
+    lis r3, printLinkedEnemyName@ha
+    addi r3, r3, printLinkedEnemyName@l
     kamek_bl 0x806649C0
     RestoreVolatileRegisters
     kamek_b 0x8012e974 # 'blr'
