@@ -4,7 +4,7 @@
 #include "types.h"
 
 // where gimmick tables are observed to start
-#define GIMMICK_TABLES_ADDR 0x8083B474
+#define GIMMICK_TABLES_ADDRS 0x8083B474
 
 class GimmickTable {
 public:
