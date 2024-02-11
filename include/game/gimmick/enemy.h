@@ -6,7 +6,8 @@
 #include "game/gameobject.h"
 #include "types.h"
 
-#define ENEMY_TABLE_ADDR 0x80844A14 // US version!
+// where enemy tables are observed to start
+#define ENEMY_TABLE_ADDRS 0x80844A14
 
 class EnemyBase : public GameObject {
 public:
