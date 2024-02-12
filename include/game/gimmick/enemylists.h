@@ -36,6 +36,7 @@ enum BulletLabels {
     BulletLabel_Arrow               = 15,
     BulletLabel_Balloons            = 19,
     BulletLabel_Parasol             = 20,
+    BulletLabel_Bullet22            = 22,
     BulletLabel_WickedWillowBullet  = 25,
     BulletLabel_Rocket              = 26,
     BulletLabel_UniclodBullet       = 80,
@@ -43,18 +44,19 @@ enum BulletLabels {
 };
 
 enum EnemyIDs {
-    EnemyID_Buttonbee               = 0x4,  // 4
-    EnemyID_WaddleDee               = 0x1A, // 26
-    EnemyID_Blipper                 = 0x21, // 33
-    EnemyID_WaddleDeeWithBow        = 0x26, // 38
-    EnemyID_WaddleDeeWithParasol    = 0x27, // 39
-    EnemyID_Enemy40                 = 0x28, // 40
-    EnemyID_Cyclod                  = 0x2C, // 44
-    EnemyID_Buttonfly               = 0x2D, // 45
+    EnemyID_Buttonbee               = 0x3,  // 3
+    EnemyID_WaddleDee               = 0x19, // 25
+    EnemyID_Blipper                 = 0x20, // 32
+    EnemyID_WaddleDeeWithBow        = 0x25, // 37
+    EnemyID_WaddleDeeWithParasol    = 0x26, // 38
+    EnemyID_Enemy40                 = 0x27, // 39
+    EnemyID_Cyclod                  = 0x2B, // 43
+    EnemyID_Buttonfly               = 0x2C, // 44
 
 
-    BulletID_Spear                  = 0x69, // 105
-    BulletID_Rocket                 = 0x7A, // 122
+    BulletID_Spear                  = 0x68, // 104
+    BulletID_Bullet22               = 0x75, // 117
+    BulletID_Rocket                 = 0x79, // 121
 };
 
 enum EnemyConstructors {
@@ -80,6 +82,7 @@ enum EnemyConstructors {
 
 
     BulletCtor_Bullet14             = 0x803c63bc,
+    BulletCtor_Bullet22             = 0x8057acc4,
     BulletCtor_WickedWillowBullet   = 0x805df478,
     BulletCtor_Cannonbal            = 0x803a9f6c,
     BulletCtor_Spear                = 0x8032EF14,
