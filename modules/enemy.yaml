@@ -3,4 +3,4 @@ Region:
   - "USA"
 CPP: []
 ASM:
-  - "src/print_enemy_table_asm.s"
+  - "src/print_enemy_table.s"
