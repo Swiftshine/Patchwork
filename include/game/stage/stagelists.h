@@ -52,7 +52,7 @@ enum StageIDs {
     Stage_FutureCity        = 131,
     Stage_TubeTown          = 132,
     Stage_MysteriousUFO     = 133,
-    Stage_StellarWar        = 134,
+    Stage_StellarWay        = 134,
     Stage_MoonBase          = 135,
     Stage_OuterRings        = 136,
 
