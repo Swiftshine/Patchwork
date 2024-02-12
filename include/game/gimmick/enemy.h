@@ -22,13 +22,13 @@ public:
 class EnemyTable {
 public:
     u32 enemyID;
+    char* name;
     union {
         void (*constructor)(); // ctor function ptr
         void (*constructorCaller)(); // function ptr to a function that calls the constructor
     };
     char* linkedEnemyName; // the name of either this enemy or another (linked) enemy it depends on
     char* path; // path to the enemy's file
-    char* name;
 };
 
 
