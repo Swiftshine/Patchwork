@@ -4,3 +4,4 @@ Region:
 CPP: []
 ASM:
   - "src/print_enemy_table.s"
+  - "src/replace_tutorial_enemy.s"
