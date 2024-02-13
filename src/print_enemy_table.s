@@ -13,7 +13,7 @@ enemyTable: .int 0
 
 # hook into 'getEnemyNameByID()'
 kmBranchDef 0x8012E958
-    # r3 is currently an EnemyTable** (pointer to a pointer)
+    # r3 is currently an EnemyTable*
     SaveVolatileRegisters
 
     lis r3, printSeparator@ha
