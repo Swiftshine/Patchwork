@@ -19,6 +19,9 @@ __ct__7GameMgrFv=0x8000E464
 # GFL::Task
 setName__Q23GFL4TaskFPc=0x8064583C
 
+# Physics Related
+getGravity__Fv=0x8009b194
+
 # PlayerBase
 setWoolWhipRange__10PlayerBaseFdP10PlayerBaseb=0x80070DC4
 
