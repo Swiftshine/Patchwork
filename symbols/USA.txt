@@ -29,11 +29,8 @@ loadCommonFromID__8StageMgrFPUlUl=0x80045abc
 loadStageFromID__8StageMgrFPUlUl=0x8004589c
 
 ### Misc. ###
-
-# ! These symbols are wrong; will fix later !
 copyEnemyNameByID__FUlPc=0x8012e92c
 getEnemyNameByID__FUl=0x8012e948
 getEnemyConstructorByID__FUl=0x8012d474
 getLinkedEnemyNameByID__FUl=0x8012e960
 getEnemyResPathByID__FUl=0x8012e978
-# ! Symbols below this point are correct !
