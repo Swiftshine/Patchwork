@@ -3,37 +3,37 @@
 #OSInit=0x80661FE0
 #OSPanic=0x80664A50
 #OSReport=0x806649C0
-OSReport__FPCce=0x806649C0
+OSReport__FPCce                                 = 0x806649C0
 
 # DVD
 #DVDClose=0x806701D0
-#DVDConvertPathToEntrynum=0x8066FD30
+#DVDConvertPathToEntrynum                       = 0x8066FD30
 #DVDFastOpen=0x80670040
 #DVDReadPrio=0x80670410
 
 
 # GameMgr
-__ct__7GameMgrFv=0x8000E464
+__ct__7GameMgrFv                                = 0x8000E464
 
 
 # GFL::Task
-setName__Q23GFL4TaskFPc=0x8064583C
+setName__Q23GFL4TaskFPc                         = 0x8064583C
 
 # Physics Related
-getGravity__Fv=0x8009b194
+getGravity__Fv                                  = 0x8009b194
 
 # PlayerBase
-setWoolWhipRange__10PlayerBaseFdP10PlayerBaseb=0x80070DC4
+setWoolWhipRange__10PlayerBaseFdP10PlayerBaseb  = 0x80070DC4
 
 # StageMgr
-loadStageDataFromID__8StageFPUlUl=0x800454d4
-loadMapdataFromID__8StageFPUlUl=0x80045c4c
-loadCommonFromID__8StageMgrFPUlUl=0x80045abc
-loadStageFromID__8StageMgrFPUlUl=0x8004589c
+loadStageDataFromID__8StageFPUlUl               = 0x800454d4
+loadMapdataFromID__8StageFPUlUl                 = 0x80045c4c
+loadCommonFromID__8StageMgrFPUlUl               = 0x80045abc
+loadStageFromID__8StageMgrFPUlUl                = 0x8004589c
 
 ### Misc. ###
-copyEnemyNameByID__FUlPc=0x8012e92c
-getEnemyNameByID__FUl=0x8012e948
-getEnemyConstructorByID__FUl=0x8012d474
-getLinkedEnemyNameByID__FUl=0x8012e960
-getEnemyResPathByID__FUl=0x8012e978
+copyEnemyNameByID__FUlPc                        = 0x8012e92c
+getEnemyNameByID__FUl                           = 0x8012e948
+getEnemyConstructorByID__FUl                    = 0x8012d474
+getLinkedEnemyNameByID__FUl                     = 0x8012e960
+getEnemyResPathByID__FUl                        = 0x8012e978
