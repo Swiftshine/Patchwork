@@ -1,4 +1,5 @@
 import sys
+import os
 
 def calc_hash(filename: str):
     calculated_hash = 0
@@ -10,7 +11,7 @@ def calc_hash(filename: str):
 def main():
     arg_count = len(sys.argv) - 1
     if arg_count != 1:
-        print("Usage: " + sys.argv[0] + " <filename>")
+        print("Usage: " + os.path.basename(sys.argv[0]) + " <filename>")
         sys.exit(1)
 
     print(hex(calc_hash(sys.argv[1])))
