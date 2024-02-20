@@ -3,7 +3,7 @@ import sys
 def calc_hash(filename: str):
     calculated_hash = 0
     for char in filename:
-        # '% (2**32)' to ensure that 32-bits
+        # '% (2**32)' to ensure that it's 32-bits
         calculated_hash = (ord(char) + calculated_hash * 0x89) % (2**32)
     return calculated_hash
 
