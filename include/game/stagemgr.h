@@ -1,6 +1,6 @@
 #include "gfl.h"
 
-// i don't think this *actually* exists in code
+// i don't think this mgr *actually* exists in code
 // but it's here for the sake of convenience, for now
 namespace StageMgr {
 

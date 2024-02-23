@@ -1,4 +1,4 @@
-struct PlayerBase { /* Current size unknown. Notes in quotes are documented from parameters. */
+struct PlayerBase {
     undefined field0_0x0;
     undefined field1_0x1;
     undefined field2_0x2;

@@ -1,7 +1,7 @@
-#ifndef FLUFF_BEAD_H
-#define FLUFF_BEAD_H
+#ifndef FLUFF_GIMMICK_BEAD_H
+#define FLUFF_GIMMICK_BEAD_H
 
-#include "game/gimmick.h"
+#include "game/object/gimmick/gimmick.h"
 
 // Size: 0x21C
 class Bead : Gimmick {

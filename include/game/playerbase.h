@@ -2,14 +2,15 @@
 #define FLUFF_PLAYERBASE_H
 
 #include <types.h>
-#include "gfl/param.h"
+#include "game/object/gameobject.h"
+#include "gfl/gfl.h"
 
 // Comments with "quotation marks" are from the
 // game's parameters, translated from Japanese.
 
 // Size: 0xF68
 
-class PlayerBase {
+class PlayerBase : public FlfGameObj {
 public:
     
     void setWoolWhipRange(f64 newRange, PlayerBase* player, bool ignoreConditions);

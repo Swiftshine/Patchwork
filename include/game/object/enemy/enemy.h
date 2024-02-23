@@ -2,22 +2,21 @@
 #define FLUFF_ENEMY_H
 
 #include "gfl/gfl.h"
-#include "game/gimmick/enemylists.h"
-#include "game/gameobject.h"
+#include "game/object/enemy/enemylist.h"
+#include "game/object/gameobject.h"
 #include "types.h"
 
 // where enemy tables are observed to start
 #define ENEMY_TABLE_ADDRS 0x80844A14
 
-class EnemyBase : public GameObject {
+// Size: 0x1D0 (?)
+class EnemyBase : public FlfGameObj {
 public:
 
 public:
-    void* baseObject;           // 0x0
-    u8 _4[0x1D0 - 0x4];         // 0x4
+
 };
 
-//static_assert(sizeof(EnemyBase) == 0x1D0, "Enemy is not the correct size.");
 
 class EnemyTable {
 public:
