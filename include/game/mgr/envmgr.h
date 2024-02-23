@@ -1,5 +1,5 @@
-#ifndef FLUFF_ENV_MGR_H
-#define FLUFF_ENV_MGR_H
+#ifndef FLUFF_ENV_MANAGER_H
+#define FLUFF_ENV_MANAGER_H
 
 #include "gfl/gfl.h"
 
