@@ -7,7 +7,6 @@
 class FlfGameObj : public FlfHandleObj {
 public:
     FlfGameObj(char* name);
-    bool objectTypeMatches(char* type);
 public:
     Vec3f position; // 0xC, 0xC
     void* _18;      // 0x18, 0x4
