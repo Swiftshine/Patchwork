@@ -9,6 +9,7 @@
 // where gimmick tables are observed to start
 #define GIMMICK_TABLES_ADDRS 0x8083B474
 
+// size: 0x80
 class Gimmick : FlfGameObj {
 public:
 
