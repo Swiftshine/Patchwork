@@ -20,8 +20,8 @@ namespace GFL {
         static void copyFromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
         static void freeCStr(char* str);
         static void freeGFLStr(GFL::BasicString* string, int unk = 0xFFFFFFFF);
-        static GFL::BasicString* fromCString(char* source);
-        static GFL::BasicString* fromGFLString(GFL::BasicString* source);
+        static void fromCString(GFL::BasicString* dest, char* source);
+        static void fromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
         static bool matches(GFL::BasicString* first, char* second);
         static void removeTrailingSlash(GFL::BasicString* dest);
         static void reserve(GFL::BasicString* dest, u32 len);
