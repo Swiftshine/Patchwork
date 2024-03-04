@@ -8,24 +8,23 @@ namespace GFL {
     // size: 0xC
     class BasicString {
     public:
-        // all of these are this_calls
         BasicString();
-
-        void appendFromCString(u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
-        void appendFromCString(u32 offset, u32 numChars, char* source);
-        void appendFromCString(char* source);
-        void appendFromGFLString(int offset, u32 numChars, GFL::BasicString* source);
-        void appendFromGFLAndCStrings(GFL::BasicString* source1, char* source2);
-        u32 compare(u32 pos, char* str1, void* unk, u32 strLen);
-        void copyFromCString(char* source);
-        void copyFromGFLString(GFL::BasicString* source);
-        void freeCStr(char* str);
-        void freeGFLStr(int unk);
-        GFL::BasicString* fromCString(char* source);
-        GFL::BasicString* fromGFLString(GFL::BasicString* source);
-        bool matches(char* other);
-        void removeTrailingSlash();
-        void reserve(u32 len);
+    public: 
+        static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
+        static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* source);
+        static void appendFromCString(GFL::BasicString* dest, char* source);
+        static void appendFromGFLString(GFL::BasicString* dest, int offset, u32 numChars, GFL::BasicString* source);
+        static void appendFromGFLAndCStrings(GFL::BasicString* dest, GFL::BasicString* source1, char* source2);
+        static u32 compare(u32 pos, char* str1, void* unk, u32 strLen);
+        static void copyFromCString(GFL::BasicString* dest, char* source);
+        static void copyFromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
+        static void freeCStr(char* str);
+        static void freeGFLStr(GFL::BasicString* string, int unk = 0xFFFFFFFF);
+        static GFL::BasicString* fromCString(char* source);
+        static GFL::BasicString* fromGFLString(GFL::BasicString* source);
+        static bool matches(GFL::BasicString* first, char* second);
+        static void removeTrailingSlash(GFL::BasicString* dest);
+        static void reserve(GFL::BasicString* dest, u32 len);
     public:
         char* strBegin;
         char* strEnd;
