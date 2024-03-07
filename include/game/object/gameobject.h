@@ -9,7 +9,8 @@ public:
     FlfGameObj(char* name);
 public:
     Vec3f position; // 0xC, 0xC
-    void* _18;      // 0x18, 0x4
+    Vec3f rotation; // 0x18, 0xC
+    Vec3f scale;    // 0x24, 0xC
 };
 
 

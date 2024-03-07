@@ -1,0 +1,6 @@
+---
+Region:
+  - "USA"
+CPP: []
+ASM:
+  - "src/object_scales.s"

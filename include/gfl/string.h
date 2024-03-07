@@ -9,13 +9,17 @@ namespace GFL {
     class BasicString {
     public:
         BasicString();
-    public: 
+    public:
+        // note to future self; instead of just doing "from x string"
+        // just make them function overloads. because that's what they are
+
         static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
         static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* source);
         static void appendFromCString(GFL::BasicString* dest, char* source);
         static void appendFromGFLString(GFL::BasicString* dest, int offset, u32 numChars, GFL::BasicString* source);
         static void appendFromGFLAndCStrings(GFL::BasicString* dest, GFL::BasicString* source1, char* source2);
-        static u32 compare(u32 pos, char* str1, void* unk, u32 strLen);
+        static int compareCString(GFL::BasicString* first, u32 pos, char* second, void* unk, u32 strLen);
+        static int compareGFLString(GFL::BasicString* first, GFL::BasicString* second);
         static void copyFromCString(GFL::BasicString* dest, char* source);
         static void copyFromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
         static void freeCStr(char* str);
