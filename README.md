@@ -27,7 +27,7 @@ If you just want to quickly test out the existing modifications, then you'll nee
 <memory offset='0x80006C40' value='4BFFB73D'/>
 ```
 
-To generate `rk5_loader.bin`, run `build_loader.py`. You will see the file in the `build/` folder.
+To generate `loader.bin`, run `build_loader.py`. You will see the file in the `build/` folder.
 
 To generate custom code, run `build_code.py`. This will compile and assemble any `.cpp` or `.S` files (excluding those related to the loader). The result will be a file called `RK5_{REGION}.bin`, where `{REGION}` is the region of your game, located in the `build/` folder.
 
