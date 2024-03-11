@@ -24,8 +24,6 @@ If you just want to quickly test out the existing modifications, then you'll nee
 ```xml
 <!-- This XML snippet should be generated when you run build_loader.py -->
 <memory offset="0x80001900" valuefile="/YourFolderName/patchwork/rk5_loader.bin"/>
-
-<!-- The '4BFFB73D' address might change, but all you need to know is that it branches to a function that calls the loader (which is at address 0x80001900) -->
 <memory offset='0x80006C40' value='4BFFB73D'/>
 ```
 
