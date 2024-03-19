@@ -49,11 +49,11 @@ namespace Param {
     };
 
 
-    class ParamS32 {
+    class ParamS32 : public ParamBase {
     public:
         ParamS32(char* label);
         ~ParamS32();
-        
+
         void print(u32 unk1, u32 unk2);
     public:
         void* vtable;           // 0x0, 0x4
@@ -63,7 +63,7 @@ namespace Param {
         GFL::BasicString* _2C;  // 0x2C, 0x4
     };
 
-    class ParamF32 {
+    class ParamF32 : public ParamBase {
     public:
         ParamF32(char* label);
 
@@ -76,7 +76,7 @@ namespace Param {
         GFL::BasicString* _2C;  // 0x2C, 0x4
     };
 
-    class ParamStr {
+    class ParamStr : public ParamBase {
     public:
         ParamStr(char* label);
         ~ParamStr();
@@ -92,7 +92,7 @@ namespace Param {
     };
 
 
-    class ParamGroup {
+    class ParamGroup : public ParamBase {
     public:
         // ParamGroup();
         ~ParamGroup();
