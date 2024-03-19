@@ -43,8 +43,8 @@ namespace Param {
         void* vtable;           // 0x0, 0x4
         char label[0x20];       // 0x4, 0x20
         u32 hash;               // 0x24, 0x4
-        bool value;             // 0x28, 0x1
         u8 padding[3];          // 0x29, 0x3
+        bool value;             // 0x28, 0x1
         GFL::BasicString* _2C;  // 0x2C, 0x4
     };
 
