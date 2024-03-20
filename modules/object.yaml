@@ -3,4 +3,5 @@ Region:
   - "USA"
 CPP: []
 ASM:
-  - "src/object_scales.s"
+  #- "src/object_scales.s"
+  - "src/obj_ctor_hacks.s"
