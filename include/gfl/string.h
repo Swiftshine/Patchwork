@@ -4,36 +4,49 @@
 #include "types.h"
 
 namespace GFL {
-
+namespace String {
     // size: 0xC
     class BasicString {
     public:
-        BasicString();
+        BasicString(char* source);
+        BasicString(GFL::String::BasicString* source)
+        ~BasicString();
     public:
-        // note to future self; instead of just doing "from x string"
-        // just make them function overloads. because that's what they are
+        void append(u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
+        void append(u32 offset, u32 numChars, char* source);
+        void append(char* source);
+        void append(int offset, u32 numChars, GFL::String::BasicString* source);
+        void append(GFL::String::BasicString* source1, char* source2);
 
-        static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
-        static void appendFromCString(GFL::BasicString* dest, u32 offset, u32 numChars, char* source);
-        static void appendFromCString(GFL::BasicString* dest, char* source);
-        static void appendFromGFLString(GFL::BasicString* dest, int offset, u32 numChars, GFL::BasicString* source);
-        static void appendFromGFLAndCStrings(GFL::BasicString* dest, GFL::BasicString* source1, char* source2);
-        static int compareCString(GFL::BasicString* first, u32 pos, char* second, void* unk, u32 strLen);
-        static int compareGFLString(GFL::BasicString* first, GFL::BasicString* second);
-        static void copyFromCString(GFL::BasicString* dest, char* source);
-        static void copyFromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
+        int compare(u32 pos, char* other, void* unk, u32 strLen);
+        int compare(GFL::String::BasicString* other);
+
+        void copy(char* source);
+        void copy(GFL::String::BasicString* source);
+
         static void freeCStr(char* str);
-        static void freeGFLStr(GFL::BasicString* string, int unk = 0xFFFFFFFF);
-        static void fromCString(GFL::BasicString* dest, char* source);
-        static void fromGFLString(GFL::BasicString* dest, GFL::BasicString* source);
-        static bool matches(GFL::BasicString* first, char* second);
-        static void removeTrailingSlash(GFL::BasicString* dest);
-        static void reserve(GFL::BasicString* dest, u32 len);
+
+        bool matches(char* other);
+        void removeTrailingSlash();
+        void reserve(u32 len);
     public:
         char* strBegin;
         char* strEnd;
         char* string;
     };
+
+    class FixedString512 {
+    public:
+        FixedString512();
+        ~FixedString512();
+
+    public:
+        bool hasForwardSlash();
+    public:
+        char    string[512];
+        u32     len;
+    };
+}
 } // namsepace GFL
 
 #endif
