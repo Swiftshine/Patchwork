@@ -10,5 +10,5 @@ public:
     void* _8;           // 0x8, 0x4  
 };
 
-// size unknown, but it's probably 0xC
+
 #endif
