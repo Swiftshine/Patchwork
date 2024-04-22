@@ -3,26 +3,27 @@
 
 #include "types.h"
 
-namespace GFL {
+namespace gfl {
 namespace String {
     // size: 0xC
     class BasicString {
     public:
         BasicString(char* source);
-        BasicString(GFL::String::BasicString* source)
+        BasicString(gfl::String::BasicString* source);
         ~BasicString();
     public:
         void append(u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
         void append(u32 offset, u32 numChars, char* source);
         void append(char* source);
-        void append(int offset, u32 numChars, GFL::String::BasicString* source);
-        void append(GFL::String::BasicString* source1, char* source2);
+        void append(int offset, u32 numChars, gfl::String::BasicString* source);
+        void append(gfl::String::BasicString* source1, char* source2);
+        void append(gfl::String::FixedString512* source);
 
         int compare(u32 pos, char* other, void* unk, u32 strLen);
-        int compare(GFL::String::BasicString* other);
+        int compare(gfl::String::BasicString* other);
 
         void copy(char* source);
-        void copy(GFL::String::BasicString* source);
+        void copy(gfl::String::BasicString* source);
 
         static void freeCStr(char* str);
 
@@ -40,13 +41,15 @@ namespace String {
         FixedString512();
         ~FixedString512();
 
+        void copy(char* source);
+        void copy(gfl::String::BasicString* source);
     public:
         bool hasForwardSlash();
     public:
         char    string[512];
         u32     len;
     };
-}
+} // namespace String
 } // namsepace GFL
 
 #endif

@@ -9,9 +9,9 @@ public:
 public:
     void* baseObject;           // 0x0
     u8 _4[0x6C - 0x4];          // 0x4
-    GFL::Task* stageTask;       // 0x6C
+    gfl::Task* stageTask;       // 0x6C
     u8 unk2[0x84 - 0x70];       // 0x70
-    GFL::Task* task2;           // 0x84
+    gfl::Task* task2;           // 0x84
     u8 unk3[0x90 - 0x88];       // 0x88
     void* functorClassMethod;   // 0x90
     u8 unk4[0xA0 - 0x94];       // 0x94

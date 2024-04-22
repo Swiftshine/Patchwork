@@ -4,7 +4,7 @@
 #include <types.h>
 #include "gfl/functor.h"
 
-namespace GFL {
+namespace gfl {
 
 // Size: 0x14
 
@@ -18,5 +18,5 @@ public:
     u32 _10;            // 0x10, 0x4
 };
 
-} // namespace GFL
+} // namespace gfl
 #endif

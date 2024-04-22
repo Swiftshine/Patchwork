@@ -8,7 +8,7 @@
 class EnvMgr {
 public:
     void* vtable;
-    GFL::Task* task;
+    gfl::Task* task;
 };
 
 
