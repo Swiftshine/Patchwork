@@ -3,9 +3,10 @@
 
 namespace gfl {
     struct RTTI {
-        char* name;
-        char* base;
+        char*  name;
+        RTTI** base;
     };
 }
 
 #endif
+
