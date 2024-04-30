@@ -48,4 +48,10 @@ typedef f32(*Mtx33Ptr)[3];
 typedef f32 Mtx44[4][4];
 typedef f32 (*Mtx44Ptr)[4];
 
+
+typedef struct {
+    u32 this_delta;
+    u32 vtable_offs;
+    void (*func)();
+} PTMF; // Pointer to Member Function
 #endif

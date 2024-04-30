@@ -18,12 +18,17 @@ public:
 
 //static_assert(sizeof(Functor) == 0x10, "gfl::Functor is not the correct size.");
 
-
-// Size unknown
-class FunctorBase {
+    
+    template <typename T>
+    // the 0 probably stands for "0 parameters"?
+    class FunctorBase0 {
     public:
-};
-
+        void operator()();
+    public:
+        void* vtable;
+        T* owner;
+        PTMF ptmf;
+    };
 
 } // namespace gfl
 
