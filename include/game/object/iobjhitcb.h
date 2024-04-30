@@ -7,10 +7,8 @@
 // size 0x460 maybe
 class IObjHitCB {
 public:
-    enum CallbackIDs {
-        Callback_EnterDoor = 0,
 
-    };
+
 public:
     void* vtable;
     PTMF callbacks[93];
