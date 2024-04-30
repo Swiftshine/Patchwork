@@ -10,10 +10,13 @@
 // game's parameters, translated from Japanese.
 
 // Size: 0xF68
-class PlayerBase : public FlfGameObj{
+class PlayerBase : public FlfGameObj {
 public:
     
-    void setWoolWhipRange(f64 newRange, PlayerBase* player, bool ignoreConditions);
+    void setWoolWhipRange(f32 newRange, bool ignoreConditions);
+
+public: // these functions are called via callbacks
+    void enterDoor();
 public:
     IObjHitCB callbacks; // 0x80, 0x460
 };
