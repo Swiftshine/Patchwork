@@ -1,8 +1,12 @@
 #include "kamek/kamek.h"
 #include "gfl/gfl.h"
 #include "game/stage/stage.h"
+// change these to whatever
+
+static bool doPrintStageInfo = false;
 
 u32* printStageInfo(u32* stageTask, Stage* stage) {
+    if (!doPrintStageInfo) return stageTask;
     OSReport("Loading stage with 0x0 value: %d\n", stage->_0);
     OSReport("Loading stage with ID: %d\n", stage->stageID);
     OSReport("Loading stage with 0x8 value: %d\n", stage->_8);
