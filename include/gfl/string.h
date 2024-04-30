@@ -5,6 +5,9 @@
 
 namespace gfl {
 namespace String {
+
+    class FixedString512;
+    
     // size: 0xC
     class BasicString {
     public:
@@ -12,6 +15,7 @@ namespace String {
         BasicString(gfl::String::BasicString* source);
         ~BasicString();
     public:
+        // i can't tell if these are actual functions or operator overloads
         void append(u32 offset, u32 numChars, char* sourceBegin, char* sourceEnd);
         void append(u32 offset, u32 numChars, char* source);
         void append(char* source);

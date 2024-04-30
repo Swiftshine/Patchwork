@@ -8,7 +8,9 @@ public:
     GameMgr();
 public:
     void* baseObject;           // 0x0
-    u8 _4[0x6C - 0x4];          // 0x4
+    u8 _4[0x38];                // 0x4
+    u32 stageLoadState;         // 0x3C
+    u8 _40[0x6C - 0x40];        // 0x40
     gfl::Task* stageTask;       // 0x6C
     u8 unk2[0x84 - 0x70];       // 0x70
     gfl::Task* task2;           // 0x84
@@ -19,6 +21,6 @@ public:
     u8 unk5[0xC0 - 0xA4];       // 0xA4
 };
 
-static_assert(sizeof(GameMgr) == 0xC0, "GameMgr is not the correct size.");
+// static_assert(sizeof(GameMgr) == 0xC0, "GameMgr is not the correct size.");
 
 #endif

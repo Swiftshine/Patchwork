@@ -23,7 +23,8 @@ namespace gfl {
         void* vtable;                                   // 0x0, 0x4
         gfl::TaskInfo* taskInfo;                        // 0x4, 0x4
         gfl::Functor* functor;                          // 0x8, 0x4
-        gfl::FunctorClassMethod0* functorClassMethod;   // 0xC, 0x4
+        void* functorClassMethod;                       // 0xC, 0x4
+        // gfl::FunctorClassMethod0* functorClassMethod;   // 0xC, 0x4
         u32 _10;                                        // 0x10, 0x4
         u32 _14;                                        // 0x14, 0x4
     };
