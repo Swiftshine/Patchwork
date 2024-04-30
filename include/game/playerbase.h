@@ -9,13 +9,13 @@
 // Comments with "quotation marks" are from the
 // game's parameters, translated from Japanese.
 
-// Size: 0xF68; multiple inheritance probably
-class PlayerBase : public FlfGameObj, public IObjHitCB<PlayerBase> {
+// Size: 0xF68
+class PlayerBase : public FlfGameObj{
 public:
     
     void setWoolWhipRange(f64 newRange, PlayerBase* player, bool ignoreConditions);
 public:
-    
+    IObjHitCB callbacks; // 0x80, 0x460
 };
 
 
