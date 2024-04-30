@@ -1,5 +1,4 @@
 #include "kamek/kamek.h"
-#include "game/playerbase.h"
 
 // default value is 3.5f
 float whipLength = 5.0f;

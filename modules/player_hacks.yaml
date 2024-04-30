@@ -3,4 +3,5 @@ Region:
   - "USA"
 CPP: []
 ASM:
-  - "src/print_on_door_entered.s"
+  #- "src/print_on_door_entered.s"
+  - "src/print_player_state.s"
