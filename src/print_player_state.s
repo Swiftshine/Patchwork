@@ -2,7 +2,7 @@
 #include <kamek/kamek_asm.S>
 
 .data
-stringContents: .string  "Player state is %X\n\0"
+stringContents: .string  "Player state is 0x%X\n\0"
 .text
 
 # hook into some PlayerBase function
