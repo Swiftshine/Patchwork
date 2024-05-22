@@ -9,6 +9,37 @@
 // where enemy tables are observed to start
 #define ENEMY_TABLE_ADDRS 0x80844A14
 
+enum EnemyBehaviors {
+    Stand,
+    Walk1,
+    Walk2,
+    Walk3,
+    WalkArea,
+    Jump,
+    JumpLR,
+    Float,
+    UpDown,
+    Slide,
+    Search,
+    Attack1,
+    Attack2,
+    Attack3,
+    Reader,
+    Following,
+    Pursue,
+    Escape,
+    Demo,
+    Event,
+};
+
+enum EnemyDirections {
+    Right,
+    Left,
+    Up,
+    Down,
+};
+
+
 // Size: 0x1D0 (?)
 class EnemyBase : public FlfGameObj {
 public:
