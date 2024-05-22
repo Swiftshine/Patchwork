@@ -15,3 +15,8 @@ deps/Kamek/Kamek.dll
 deps/Kamek/Kamek.runtimeconfig.json
 
 build/
+
+
+# Modules or source files for debugging
+# that don't need to be pushed
+fluff_debug*
