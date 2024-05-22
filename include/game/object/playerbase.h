@@ -22,7 +22,7 @@ public:
     enum PlayerState {
         PlayerState_Default             = 0, // this applies to many situations, such as entering a door, being carried by Angie, or being used in the controls menu. think of it as a state for situations that dont fit the others
         PlayerState_OnGround            = 1, // the player is on the ground
-        PlayerState_Jump1               = 2, // the player is in the air because of a jumping action
+        PlayerState_Jump                = 2, // the player is in the air because of a jumping action
         PlayerState_Undefined3          = 3, // identical to 0xE
         PlayerState_YarnWhip            = 4, // the player is using the yarn whip
         PlayerState_Weight              = 5, // the player becomes a weight
@@ -51,6 +51,23 @@ public:
         PlayerState_Undefined24         = 0x24, // similar to 0x4, but with a shorter duration; the yarn whip does not extend all the way
         PlayerState_Undefined27         = 0x27, // similar to 0x5, but in an odd way. the player never hits the ground and the animation stops instead of looping
         PlayerState_Undefined2C         = 0x2C, // the player jumps, then free falls.
+    };
+
+    enum PlayerTransformation {
+        PlayerTransformation_None        = 0x0,
+        PlayerTransformation_Submarine   = 0x1,
+        PlayerTransformation_String      = 0x2,  // used in tight spaces. looks like a silly little worm
+        PlayerTransformation_Surfboard   = 0x3,  // called "Boat" internally. is the penguin on the surfboard
+        PlayerTransformation_Robot       = 0x4,
+        PlayerTransformation_OffRoader   = 0x5,  // called "Vehicle" internally
+        PlayerTransformation_Firetruck   = 0x6,  // called "Splash" internally
+        PlayerTransformation_Train       = 0x7,  // called "TrainFree" internally
+        PlayerTransformation_Dolphin     = 0x8,  // called "AquaRide" internally
+        PlayerTransformation_Rocket      = 0x9,
+        PlayerTransformation_WarpStar    = 0xA,
+        PlayerTransformation_UFO         = 0xB,
+
+        PlayerTransformation_Digger      = 0xD,  // called "BrightRobot" internally
     };
 
 public:
