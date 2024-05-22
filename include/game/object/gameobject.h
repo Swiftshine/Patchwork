@@ -7,7 +7,12 @@
 // size: 0x80 (i think)
 class FlfGameObj : public FlfHandleObj {
 public:
-    FlfGameObj(char* name);
+    enum ObjectType {
+        ObjectType_Player,
+        ObjectType_Enemy,
+        ObjectType_Gimmick,
+    };
+    FlfGameObj(FlfGameObj::ObjectType type);
 public:
     Vec3f position;         // 0x0C, 0xC
     Vec3f rotation;         // 0x18, 0xC
@@ -16,7 +21,7 @@ public:
     Vec3f _54;              // 0x54, 0xC
     void* _60;              // 0x60, 0x4
     void* _64;              // 0x64, 0x4
-    char* name;             // 0x68, 0x4
+    ObjectType type;        // 0x68, 0x4
     bool _6C;               // 0x6C, 0x1
     bool _6D;               // 0x6D, 0x1
     bool _6E;               // 0x6E, 0x1
