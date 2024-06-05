@@ -6,10 +6,8 @@
 #include "game/object/gimmick/gimmicklist.h"
 #include "gfl/gfl.h"
 
-// where gimmick tables are observed to start
+// where gimmick tables are observed to start (american)
 #define GIMMICK_TABLES_ADDRS 0x8083b468
-// #define GIMMICK_TABLES_ADDRS 0x8083B474
-
 
 // size: 0x130 (i think)
 class Gimmick : FlfGameObj {
@@ -42,9 +40,9 @@ public:
 // size unknown
 class GimmickTable {
 public:
-    char* description;  // ShiftJIS, not ASCII
+    wchar_t* description;  // ShiftJIS, not ASCII
     char* name;
-    void (*constructor)();
+    Gimmick (*build)();
     void (*stringRelatedFunction)();
 };
 
