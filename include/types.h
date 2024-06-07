@@ -33,8 +33,8 @@ typedef struct {
 } Quaternion;
 
 // 3x4 matrix & pointer
-typedef f32 Mtx[3][4];
-typedef f32 (*MtxPtr)[4];
+typedef f32 MTX34[3][4];
+typedef f32 (*MTX34Ptr)[4];
 
 // 4x3 reordered matrix & pointer
 typedef f32 ROMtx[4][3];
