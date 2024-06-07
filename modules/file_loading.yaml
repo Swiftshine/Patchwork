@@ -3,4 +3,5 @@ Region:
   - "USA"
 CPP: []
 ASM:
-  - "src/print_file_load.s"
+  #- "src/print_file_load.s"
+  - "src/archive_bypass.s"
