@@ -1,0 +1,6 @@
+#ifndef FLUFF_NURBS_DRAW_OBJ_H
+#define FLUFF_NURBS_DRAW_OBJ_H
+
+
+
+#endif
