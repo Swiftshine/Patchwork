@@ -91,7 +91,7 @@ public:
 
     void onDamage();
 public:
-    IObjHitCB callbacks; // 0x80, 0x460, these callbacks align with the player's state
+    Callbacks callbacks; // 0x80, 0x460, these callbacks align with the player's state
 };
 
 
