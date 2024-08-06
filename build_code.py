@@ -65,7 +65,7 @@ def get_cpp_tasks(target: str):
                     if file == "loader.cpp" or file == "rk5_loader.cpp":
                         continue
                     source_path = os.path.join(root, file)
-                    build_path = source_path.replace("src", "build\obj").replace(".cpp", ".o")
+                    build_path = source_path.replace("src", "build/obj").replace(".cpp", ".o")
 
                     os.makedirs(os.path.dirname(build_path), exist_ok=True)
 
@@ -113,9 +113,9 @@ def get_asm_tasks(target: str):
                 if file.endswith(".s") or file.endswith(".S"):
                     source_path = os.path.join(root, file)
                     if file.endswith(".s"):
-                        build_path = source_path.replace("src", "build\obj").replace(".s", ".o")
+                        build_path = source_path.replace("src", "build/obj").replace(".s", ".o")
                     elif file.endswith(".S"):
-                        build_path = source_path.replace("src", "build\obj").replace(".S", ".o")
+                        build_path = source_path.replace("src", "build/obj").replace(".S", ".o")
 
                     os.makedirs(os.path.dirname(build_path), exist_ok=True)
 
