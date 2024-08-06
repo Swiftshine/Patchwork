@@ -15,7 +15,7 @@ deps/Kamek/Kamek.dll
 deps/Kamek/Kamek.runtimeconfig.json
 
 build/
-
+hexpats/
 
 # Modules or source files for debugging
 # that don't need to be pushed

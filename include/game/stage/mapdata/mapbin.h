@@ -10,22 +10,44 @@ namespace Mapdata {
 namespace Mapbin {
     struct Header {
         f32 _0;
-        Vec2f _4;
-        Vec2f _C;
-        CountOffsetPair dataSeg; // triangles
-        CountOffsetPair dataSegLabels;
-        CountOffsetPair strings1;
-        CountOffsetPair strings2;
-        CountOffsetPair strings3;
-        u32 _3C;
-        u32 _30;
-        u32 _44;
+        Vec2f boundsStart;
+        Vec2f boundsEnd;
+        u32 triangleCount;
+        u32 trianglesOffset;
+        u32 dataSegLabelCount;
+        u32 dataSegLabelOffset;
+        u32 strings1Count;
+        u32 strings1Offset;
+        u32 gimmickCount;
+        u32 gimmicksOffset;
+        u32 strings3Count;
+        u32 strings3Offset;
+        u32 strings4Count;
+        u32 strings4Offset;
+        u32 strings5Count;
+        u32 strings5Offset;
+        u32 parameterOffset;
+        u32 colbinFooterOffset;
+        u32 colbinFooterEnd;
     };
 
+    struct GimmickEntry {
+        char name[0x30];
+        Vec3f position;
+
+    };
+
+    struct ParamHeader {
+        u32 count; // ?
+    };
+
+    struct Param {
+        char name[0x20];
+
+    };
     struct Struct1 {
 
     };
-
 
     // size: 0x98
     struct Struct2 {

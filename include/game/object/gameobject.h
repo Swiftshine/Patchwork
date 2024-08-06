@@ -27,7 +27,7 @@ public:
     bool _6E;               // 0x6E, 0x1
     bool _6F;               // 0x6F, 0x1
     float cullingThreshold; // 0x70, 0x4
-    void* _74;              // 0x74, 0x4
+    u32 flags;              // 0x74, 0x4
     void* _78;              // 0x78, 0x4
     bool _7C;               // 0x7C, 0x1
     bool _7D;               // 0x7D, 0x1

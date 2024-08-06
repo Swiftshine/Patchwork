@@ -1,0 +1,6 @@
+---
+Region:
+  - "USA"
+CPP:
+  - "src/game_mgr_hacks.cpp"
+ASM: []

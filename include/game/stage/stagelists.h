@@ -74,4 +74,13 @@ enum StageIDs {
     Stage_YinYarn           = 307,
 };
 
+/* mapbin file name prefixes and what they mean:
+
+mb - Beadrix
+mc - Carrie
+ms - Zeke
+md - Buster
+(Mara's race is always defined in the primary mapbin)
+
+*/
 #endif

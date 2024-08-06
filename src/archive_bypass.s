@@ -57,7 +57,7 @@ StringsMatch:
     # gfl::FileExists
     kamek_bl 0x8063c718
     cmpw r3, 0x1
-    beq FileDoesntExist
+    beq FileDoesExist
     RestoreVolatileRegisters
     # this part is just to prevent the consecutive restorations from being optimised out
     nop
@@ -71,7 +71,7 @@ StringsMatch:
     # it might have been excessive...
     RestoreVolatileRegisters
     b Ending
-FileDoesntExist:
+FileDoesExist:
     RestoreVolatileRegisters
     RestoreVolatileRegisters
     li r4, 0x1
