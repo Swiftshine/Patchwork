@@ -10,10 +10,9 @@
 gfaEnding: .string ".gfa\0"
 .text
 
-# gfl::ResArchivedFileInfo::fromArchive
-
-
-# this is some messy assembly but bear with me
+# This assembly patches the function
+# gfl::ResArchivedFileInfo::FromArchive
+# this is some really messy assembly but bear with me
 kmBranchDef 0x8002261c
     # original instruction
     li r4, 0x0
@@ -31,7 +30,6 @@ kmBranchDef 0x8002261c
     b Ending
 
 IsGreaterThanFour:
-
     mr r5, r3
     mr r3, r4
     subi r5, r5, 0x5
@@ -54,25 +52,22 @@ StringsMatch:
     RestoreVolatileRegisters
     SaveVolatileRegisters
     mr r3, r4
-    # gfl::FileExists
+    # gfl::ResArchivedFileInfo::FileExists
     kamek_bl 0x8063c718
     cmpw r3, 0x1
     beq FileDoesExist
     RestoreVolatileRegisters
-    # this part is just to prevent the consecutive restorations from being optimised out
-    nop
-    nop
+    # this part is just to prevent the consecutive restorations from being optimised out. it doesnt do anything meaningful.
     addi r1, r1, 0x4
     nop
-    nop
     subi r1, r1, 0x4
-    nop
-    nop
-    # it might have been excessive...
     RestoreVolatileRegisters
     b Ending
 FileDoesExist:
     RestoreVolatileRegisters
+    addi r1, r1, 0x4
+    nop
+    subi r1, r1, 0x4
     RestoreVolatileRegisters
     li r4, 0x1
 Ending:
