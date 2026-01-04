@@ -37,3 +37,9 @@ getEnemyNameByID__FUl                           = 0x8012e948
 getEnemyConstructorByID__FUl                    = 0x8012d474
 getLinkedEnemyNameByID__FUl                     = 0x8012e960
 getEnemyResPathByID__FUl                        = 0x8012e978
+
+### BGSTFile ###
+CopyImageData__8BGSTFileFPPvPPvUlUlUl           = 0x80165c58
+
+### Game ###
+TryPlayMusic__Q24Game5SoundFii = 0x8000781c

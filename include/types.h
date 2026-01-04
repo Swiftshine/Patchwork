@@ -2,6 +2,7 @@
 #define TYPES_H
 
 #define NULL 0
+#define nullptr 0
 
 typedef unsigned char u8;
 typedef unsigned short u16;
